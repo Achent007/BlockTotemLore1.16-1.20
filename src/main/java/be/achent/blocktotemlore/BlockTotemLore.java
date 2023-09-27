@@ -1,15 +1,14 @@
 package be.achent.blocktotemlore;
 
-import be.achent.blocktotemlore.Commands.Commands;
+import be.achent.blocktotemlore.Commands.BlockTotemLoreCommands;
+import be.achent.blocktotemlore.Commands.BlockTotemLoreTabCompleter;
 import be.achent.blocktotemlore.Event.Event;
 import java.util.ArrayList;
 import org.bukkit.ChatColor;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class BlockTotemLore extends JavaPlugin {
-    public Commands commands;
+    public BlockTotemLoreTabCompleter commands;
 
     private Messages messages;
 
@@ -18,11 +17,11 @@ public class BlockTotemLore extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         this.messages = new Messages();
-        this.commands = new Commands();
-        saveDefaultConfig();
         this.messages.saveDefaultConfig();
-        this.commands.init();
-        getServer().getPluginManager().registerEvents((Listener)new Event(), (Plugin)this);
+        saveDefaultConfig();
+        getCommand("blocktotemlore").setExecutor(new BlockTotemLoreCommands());
+        getCommand("blocktotemlore").setTabCompleter(new BlockTotemLoreTabCompleter());
+        getServer().getPluginManager().registerEvents(new Event(), this);
     }
 
     public static BlockTotemLore getInstance() {

@@ -19,7 +19,6 @@ public class Event implements Listener {
             if ((p.getInventory().getItemInMainHand().getType() == Material.TOTEM_OF_UNDYING || p.getInventory().getItemInOffHand().getType() == Material.TOTEM_OF_UNDYING) && (
                     checkTotem(p.getInventory().getItemInOffHand()) || checkTotem(p.getInventory().getItemInMainHand()))) {
                 e.setCancelled(true);
-                return;
             }
         }
     }
