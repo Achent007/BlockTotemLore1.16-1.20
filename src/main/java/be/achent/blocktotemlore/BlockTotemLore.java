@@ -4,14 +4,17 @@ import be.achent.blocktotemlore.Commands.BlockTotemLoreCommands;
 import be.achent.blocktotemlore.Commands.BlockTotemLoreTabCompleter;
 import be.achent.blocktotemlore.Event.Event;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class BlockTotemLore extends JavaPlugin {
+
     public BlockTotemLoreTabCompleter commands;
-
     private Messages messages;
-
     public static BlockTotemLore plugin;
 
     public void onEnable() {

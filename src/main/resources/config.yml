@@ -1,2 +1,5 @@
+# Lore are checked without color codes.
+# If you insert a color code inside this config, the plugin stop working.
 block-lore:
   - 'Blocked totem'
+  - 'Second lore blocked'

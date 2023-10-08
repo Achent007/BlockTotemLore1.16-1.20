@@ -1,8 +1,6 @@
 package be.achent.blocktotemlore;
 
 import java.io.*;
-
-import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -32,6 +30,16 @@ public class Messages {
         if (this.languageConfig == null)
             reload();
         return this.languageConfig;
+    }
+
+    public void saveConfig() {
+        if (this.languageConfig == null || this.languageConfigFile == null)
+            return;
+        try {
+            get().save(this.languageConfigFile);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void saveDefaultConfig() {
