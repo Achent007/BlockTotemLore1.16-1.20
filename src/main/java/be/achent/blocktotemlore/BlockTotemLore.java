@@ -4,11 +4,11 @@ import be.achent.blocktotemlore.Commands.BlockTotemLoreCommands;
 import be.achent.blocktotemlore.Commands.BlockTotemLoreTabCompleter;
 import be.achent.blocktotemlore.Event.Event;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.List;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import be.achent.blocktotemlore.chatcolorhandler.ChatColorHandler;
+import be.achent.blocktotemlore.chatcolorhandler.parsers.custom.MiniMessageParser;
+import be.achent.blocktotemlore.chatcolorhandler.parsers.custom.PlaceholderAPIParser;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class BlockTotemLore extends JavaPlugin {
@@ -32,7 +32,7 @@ public class BlockTotemLore extends JavaPlugin {
     }
 
     public String getMessage(String path) {
-        return ChatColor.translateAlternateColorCodes('&', this.messages.get().getString(path));
+        return ChatColorHandler.translateAlternateColorCodes(this.messages.get().getString(path), List.of(PlaceholderAPIParser.class, MiniMessageParser.class));
     }
 
     public void reloadMessages() {
