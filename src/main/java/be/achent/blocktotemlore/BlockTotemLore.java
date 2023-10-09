@@ -2,10 +2,9 @@ package be.achent.blocktotemlore;
 
 import be.achent.blocktotemlore.Commands.BlockTotemLoreCommands;
 import be.achent.blocktotemlore.Commands.BlockTotemLoreTabCompleter;
-import be.achent.blocktotemlore.Event.Event;
+import be.achent.blocktotemlore.Event.BlockTotemLoreCancelEvent;
 import java.util.ArrayList;
 import java.util.List;
-
 import be.achent.blocktotemlore.chatcolorhandler.ChatColorHandler;
 import be.achent.blocktotemlore.chatcolorhandler.parsers.custom.MiniMessageParser;
 import be.achent.blocktotemlore.chatcolorhandler.parsers.custom.PlaceholderAPIParser;
@@ -24,7 +23,7 @@ public class BlockTotemLore extends JavaPlugin {
         saveDefaultConfig();
         getCommand("blocktotemlore").setExecutor(new BlockTotemLoreCommands());
         getCommand("blocktotemlore").setTabCompleter(new BlockTotemLoreTabCompleter());
-        getServer().getPluginManager().registerEvents(new Event(), this);
+        getServer().getPluginManager().registerEvents(new BlockTotemLoreCancelEvent(), this);
     }
 
     public static BlockTotemLore getInstance() {

@@ -3,3 +3,6 @@
 block-lore:
   - 'Blocked totem'
   - 'Second lore blocked'
+
+# Define if you want te message about the protection to be displayed or not
+blocked-message: true

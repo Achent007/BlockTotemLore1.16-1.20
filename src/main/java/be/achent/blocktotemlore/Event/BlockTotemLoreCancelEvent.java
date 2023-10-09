@@ -11,7 +11,10 @@ import org.bukkit.event.entity.EntityResurrectEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class Event implements Listener {
+import static be.achent.blocktotemlore.BlockTotemLore.getPlugin;
+import static be.achent.blocktotemlore.BlockTotemLore.plugin;
+
+public class BlockTotemLoreCancelEvent implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onTotemUse(EntityResurrectEvent e) {
         if (e.getEntity() instanceof Player) {
@@ -19,6 +22,8 @@ public class Event implements Listener {
             if ((p.getInventory().getItemInMainHand().getType() == Material.TOTEM_OF_UNDYING || p.getInventory().getItemInOffHand().getType() == Material.TOTEM_OF_UNDYING) && (
                     checkTotem(p.getInventory().getItemInOffHand()) || checkTotem(p.getInventory().getItemInMainHand()))) {
                 e.setCancelled(true);
+                if (getPlugin().getConfig().getBoolean("blocked-message") == true)
+                p.sendMessage(plugin.getMessage("event-canceled"));
             }
         }
     }
