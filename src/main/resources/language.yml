@@ -1,7 +1,7 @@
 # Message displayed when a player do /blocktotemlore without the permission.
 NoPermission: "&7[&cBlockTotemLore&7] &cYou don't have the permission to do this."
 
-# Message displayed when the commande /blocktotemlore reload is effectued.
+# Message displayed when the command /blocktotemlore reload is effectued.
 Reloaded: "&7[&cBlockTotemLore&7] &aPlugin reloaded successfully."
 
 # Message send when player died with a totem with blocked lore.
